@@ -7,8 +7,8 @@ WORKDIR /microUsuarios
 RUN npm init --yes
 RUN npm install express morgan mysql mysql2 axios
 
-COPY controllers /microUsuarios/controllers
-COPY models /microUsuarios/models
-COPY index.js /microUsuarios
+COPY src/controllers /microUsuarios/src/controllers
+COPY src/models /microUsuarios/src/models
+COPY src/index.js /microUsuarios/src
 
 CMD node index.js
