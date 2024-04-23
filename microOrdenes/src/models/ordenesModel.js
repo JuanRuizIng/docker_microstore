@@ -1,13 +1,14 @@
 const mysql = require("mysql2/promise");
 const connection = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "almacen",
+	host: "db",
+	port: "3306",
+	user: "root",
+	password: "root",
+	database: "almacen"
 });
 
 async function crearOrden(orden) {
-  console.log(orden);
+  //console.log(orden);
   const nombreCliente = orden.nombreCliente;
   const emailCliente = orden.emailCliente;
   const totalCuenta = orden.totalCuenta;

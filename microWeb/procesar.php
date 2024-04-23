@@ -13,6 +13,12 @@ foreach ($_POST['cantidad'] as $id => $cantidad) {
 
 }
 
+//$items = array(
+//    'id' => $id,
+//    'cantidad' => $cantidad,
+//);
+//$json_data = json_encode($data);
+
 $orden['usuario']=$usuario;
 $orden['items']=$items;
 
@@ -34,7 +40,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 // Ejecutar la solicitud POST
 $response = curl_exec($ch);
-
+if (curl_errno($ch)) {
+    // Mostrar el mensaje de error
+    echo 'Error:' . curl_error($ch);
+};
 // Manejar la respuesta
 if ($response===false){
     header("Location:index.html");
@@ -42,7 +51,7 @@ if ($response===false){
 // Cerrar la conexión cURL
 curl_close($ch);
 
-echo "la orden ha sido creada";
+//echo "la orden ha sido creada";
 header("Location:usuario.php");
 
 ?>
